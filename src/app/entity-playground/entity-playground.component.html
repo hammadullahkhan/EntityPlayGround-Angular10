@@ -1,0 +1,17 @@
+<mat-card class="entity-card">
+    <mat-card-content>  
+      <div>
+        <app-entity-input-form (jsonOutput)="showJsonOutput($event)"></app-entity-input-form>
+      </div>
+    </mat-card-content>
+</mat-card>
+
+<br>
+<mat-card class="entity-card">
+    <mat-card-title>Json output</mat-card-title>
+    <mat-card-content>
+        <pre>
+            {{jsonOutput}}
+        </pre>
+    </mat-card-content>
+</mat-card>

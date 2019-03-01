@@ -1,0 +1,17 @@
+.entity-card {
+  max-width: 800px;
+}
+
+.json-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: flex-start;
+
+  .json-item {
+    align-self: center;
+    flex-grow: 2;
+  }
+}

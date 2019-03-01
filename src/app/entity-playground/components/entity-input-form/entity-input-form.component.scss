@@ -1,0 +1,36 @@
+.head-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: flex-start;
+
+  .head-item {
+    align-self: flex-start;
+    width: 150px;
+  }
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  .fields-item {
+    align-self: flex-start;
+    width: 250px;
+  }
+}
+
+.right-align {
+  text-align: right;
+  width: 200px;
+}
+
+mat-form-field {
+  width: 185px;
+}
