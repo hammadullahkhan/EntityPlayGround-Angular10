@@ -2,5 +2,7 @@
 
 export const environment = {
   production: true,
-  baseUrl: '/'
+  baseUrl: '/',
+  entityMetaSessionKey: 'EntityData',
+  appDateFormat: 'yyy-MM-dd'
 };

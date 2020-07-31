@@ -1,8 +1,10 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Inject, LOCALE_ID } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { formatDate } from '@angular/common';
 
 import { EntityService } from "../../services/entity.service";
 import { EntityMeta, EntityData, FieldModified, Field } from "../../models";
+import { environment as ENV } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-entity-input-form',
@@ -17,7 +19,7 @@ export class EntityInputFormComponent implements OnInit {
   fieldModified: FieldModified = {};
   @Output() jsonOutput: EventEmitter<FieldModified> = new EventEmitter();
 
-  constructor(private entityService: EntityService) {
+  constructor(private entityService: EntityService, @Inject(LOCALE_ID) private locale: string) {
     this.fieldModified.$orignal = {};
    }
 
@@ -40,13 +42,10 @@ export class EntityInputFormComponent implements OnInit {
   setEntityResult(): void {
     this.entityResult = { ...this.entityMeta };
     this.entityResult = this.entityService.mapEntityResult(this.entityResult, this.entityData);
-    // console.log(this.entityMeta)
-    // console.log(this.entityData)
-    // console.log(this.entityResult)
   }
 
   save(): void {
-    this.entityService.setSessionStorage('fieldModified', this.fieldModified);
+    this.entityService.setSessionStorage(ENV.entityMetaSessionKey, this.fieldModified);
     this.jsonOutput.emit(this.fieldModified);
   }
 
@@ -55,9 +54,13 @@ export class EntityInputFormComponent implements OnInit {
     this.fieldModified.$orignal[field.name] = field.orignalValue;
   }
 
-  registerChangeDate(type: string, event: MatDatepickerInputEvent<Date>, field): void {
-    this.fieldModified[field.name] = event.value;
-    this.fieldModified.$orignal[field.name] = field.orignalValue;
+  registerChangeDate(type: string, event: MatDatepickerInputEvent<Date>, field: FieldModified): void {
+    this.fieldModified[field.name] = this.transformDate(event.value); //formatDate(event.value, 'yyy-MM-dd', this.locale);
+    this.fieldModified.$orignal[field.name] = this.transformDate(field.orignalValue); //formatDate(field.orignalValue, 'yyy-MM-dd', this.locale);
+  }
+
+  private transformDate(dateStr: Date) {
+    return formatDate(dateStr, ENV.appDateFormat, this.locale);
   }
 
 }

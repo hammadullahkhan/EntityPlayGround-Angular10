@@ -6,7 +6,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: '/'
+  baseUrl: '/',
+  entityMetaSessionKey: 'EntityData',
+  appDateFormat: 'yyy-MM-dd'
 };
 
 /*
