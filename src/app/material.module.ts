@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatNativeDateModule,
-         MatSidenavModule,
-         MatToolbarModule,
-         MatChipsModule,
-         MatTreeModule,
-         MatBadgeModule,
-         MatBottomSheetModule } from '@angular/material';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTreeModule } from '@angular/material/tree';
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
