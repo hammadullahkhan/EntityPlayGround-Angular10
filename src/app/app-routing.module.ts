@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'entity-playground',
-    loadChildren: './entity-playground/entity-playground.module#EntityPlaygroundModule'
+    loadChildren: () => import('./entity-playground/entity-playground.module').then(m => m.EntityPlaygroundModule)
   },
   {
     path: '404',
