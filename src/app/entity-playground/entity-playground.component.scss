@@ -1,3 +1,15 @@
+.entity-container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.entity-item {
+  // flex-grow: 1;
+  margin: 50px;
+}
+
 .entity-card {
   max-width: 800px;
 }
@@ -13,5 +25,9 @@
   .json-item {
     align-self: center;
     flex-grow: 2;
+  }
+
+  .json-out {
+    flex-grow: 10 !important;
   }
 }

@@ -1,13 +1,14 @@
 .head-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: baseline;
-  align-content: flex-start;
 
   .head-item {
-    align-self: flex-start;
+    align-self: center;
+    flex-grow: 1;
+    width: 150px;
+  }
+
+  .head-item-btn {
+    align-self: center;
     width: 150px;
   }
 }

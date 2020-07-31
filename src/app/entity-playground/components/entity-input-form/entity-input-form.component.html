@@ -1,21 +1,25 @@
-<h3>Entity Meta</h3>
 <div class="head-container">
   <div class="head-item">
     {{ entityResult.label }}: {{ entityResult.name }} 
   </div>
   <!-- <div class="head-item">&nbsp;</div> -->
-  <div class="head-item">
+  <div class="head-item-btn">
     <button mat-raised-button color="primary" (click)="save()">Save</button>
   </div>
 </div>
 
+<hr>
 <h3>Fields</h3>
+<hr>
+<br><br>
 <div class="fields-container">
     <div class="fields-item" *ngFor="let field of entityResult.field">
 
-      <div *ngIf="!field.system">
         <div [ngSwitch]="field.dataType">
           <mat-form-field *ngSwitchCase="'String'">
+            <input matInput placeholder="{{field.label}}" [(ngModel)]="field.value" (change)="registerChange(field)">
+          </mat-form-field>
+          <mat-form-field *ngSwitchCase="'lookup'">
             <input matInput placeholder="{{field.label}}" [(ngModel)]="field.value" (change)="registerChange(field)">
           </mat-form-field>
           <mat-form-field *ngSwitchCase="'Decimal'">
@@ -26,7 +30,6 @@
           <mat-form-field *ngSwitchCase="'Integer'">
               <input matInput placeholder="{{field.label}}" [(ngModel)]="field.value" (change)="registerChange(field)" type="number" class="right-align">
               <span matPrefix>$&nbsp;</span>
-              <!-- <span matSuffix>.00</span> -->
             </mat-form-field>
           <mat-form-field *ngSwitchCase="'Date'">
               <input matInput [matDatepicker]="picker" [value]="field.value" placeholder="{{field.label}}" (dateChange)="registerChangeDate('change', $event, field)">
@@ -34,6 +37,5 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
-      </div>
     </div>
 </div>

@@ -40,6 +40,9 @@ export class EntityInputFormComponent implements OnInit {
   setEntityResult(): void {
     this.entityResult = { ...this.entityMeta };
     this.entityResult = this.entityService.mapEntityResult(this.entityResult, this.entityData);
+    // console.log(this.entityMeta)
+    // console.log(this.entityData)
+    // console.log(this.entityResult)
   }
 
   save(): void {

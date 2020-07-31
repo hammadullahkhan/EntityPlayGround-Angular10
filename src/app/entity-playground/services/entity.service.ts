@@ -23,13 +23,18 @@ export class EntityService {
 
   public mapEntityResult(entityResult: EntityMeta, entityData: EntityData): EntityMeta {
     
-    entityResult.field = entityResult.field.filter(field => !field.system);
+    entityResult.field = this.filterBySystem(entityResult.field);
     entityResult.field.forEach(field => {
       field.orignalValue = entityData[field.name] ? entityData[field.name] : null; 
-      field.value = field.orignalValue;
+      field.value = field.orignalValue;      
     });
-    
+    entityResult.name = entityData.label;
+    // console.log(entityResult)    
     return entityResult;
+  }
+
+  public filterBySystem(fields) {
+    return fields.filter(field => !field.system);
   }
 
   public setSessionStorage (key: string, fieldModified: FieldModified): void {
