@@ -26,7 +26,8 @@ export class EntityService {
     entityResult.field = this.filterBySystem(entityResult.field);
     entityResult.field.forEach(field => {
       field.orignalValue = entityData[field.name] ? entityData[field.name] : null; 
-      field.value = field.orignalValue;      
+      field.value = field.orignalValue;
+      field.label = field.label.replace('_', ' ');
     });
     entityResult.name = entityData.label;
     // console.log(entityResult)    

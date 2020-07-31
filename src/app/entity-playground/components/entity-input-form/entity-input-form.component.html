@@ -1,6 +1,6 @@
 <div class="head-container">
   <div class="head-item">
-    {{ entityResult.label }}: {{ entityResult.name }} 
+    <strong>{{ entityResult.label }}: {{ entityResult.name }}</strong>
   </div>
   <!-- <div class="head-item">&nbsp;</div> -->
   <div class="head-item-btn">
@@ -9,8 +9,8 @@
 </div>
 
 <hr>
-<h3>Fields</h3>
-<hr>
+<h2>Entity Meta Field(s)</h2>
+<!-- <hr> -->
 <br><br>
 <div class="fields-container">
     <div class="fields-item" *ngFor="let field of entityResult.field">
