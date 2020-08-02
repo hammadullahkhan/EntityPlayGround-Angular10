@@ -6,3 +6,4 @@ export const environment = {
   snackBarSavedMessage: 'Saved to Session storage',
   snackBarDuration: 3000
 };
+environment.snackBarSavedMessage += ` '`  + environment.entityMetaSessionKey  + `'`;
