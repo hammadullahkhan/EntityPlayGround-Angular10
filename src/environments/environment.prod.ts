@@ -3,7 +3,8 @@ export const environment = {
   baseUrl: '/',
   entityMetaSessionKey: 'EntityData',
   appDateFormat: 'yyy-MM-dd',
-  snackBarSavedMessage: 'Saved to Session storage',
+  snackBarSavedMessage: 'Saved to Session storage.',
   snackBarDuration: 3000
 };
-environment.snackBarSavedMessage += ` '`  + environment.entityMetaSessionKey  + `'`;
+
+environment.snackBarSavedMessage += ` with key '`  + environment.entityMetaSessionKey  + `'`;

@@ -7,11 +7,11 @@ export const environment = {
   baseUrl: '/',
   entityMetaSessionKey: 'EntityData',
   appDateFormat: 'yyy-MM-dd',
-  snackBarSavedMessage: 'Saved to browser session storage.',
+  snackBarSavedMessage: 'Saved to browser session storage',
   snackBarDuration: 3000
 };
 
-environment.snackBarSavedMessage += ` '`  + environment.entityMetaSessionKey  + `'`;
+environment.snackBarSavedMessage += ` with key '`  + environment.entityMetaSessionKey  + `'`;
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
