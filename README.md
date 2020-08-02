@@ -5,6 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## GitHub Deployed
 https://hammadullahkhan.github.io/entity-playground-ng-10/
 
+## GitHub Repository
+https://github.com/hammadullahkhan/entity-playground-ng-10
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
