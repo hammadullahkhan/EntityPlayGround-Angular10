@@ -1,9 +1,9 @@
-# entity-playground-angular-10
+# entity-playground-ng-10
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
 
 ## GitHub Deployed
-https://hammadullahkhan.github.io/Entity-PlayGround-Angular10/
+https://hammadullahkhan.github.io/entity-playground-ng-10/
 
 ## Development server
 
