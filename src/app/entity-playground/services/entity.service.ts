@@ -30,7 +30,6 @@ export class EntityService {
       field.label = field.label.replace('_', ' ');
     });
     entityResult.name = entityData.label;
-    // console.log(entityResult)    
     return entityResult;
   }
 

@@ -15,9 +15,7 @@ export class EntityPlaygroundComponent implements OnInit {
   }
 
   showJsonOutput(jsonOutput: FieldModified): void {
-    // console.log(jsonOutput)
     this.jsonOutput = JSON.stringify(jsonOutput, null, 2);
-    // console.log(this.jsonOutput)
   }
 
 }

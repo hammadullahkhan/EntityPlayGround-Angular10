@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Inject, LOCALE_ID } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { formatDate } from '@angular/common';
 
 import { EntityService } from "../../services/entity.service";
@@ -16,10 +17,10 @@ export class EntityInputFormComponent implements OnInit {
   entityMeta: EntityMeta;
   entityData: EntityData;
   entityResult: EntityMeta;
-  fieldModified: FieldModified = {};
+  fieldModified: FieldModified = {};  
   @Output() jsonOutput: EventEmitter<FieldModified> = new EventEmitter();
 
-  constructor(private entityService: EntityService, @Inject(LOCALE_ID) private locale: string) {
+  constructor(private entityService: EntityService, @Inject(LOCALE_ID) private locale: string, public snackBar: MatSnackBar) {
     this.fieldModified.$orignal = {};
    }
 
@@ -45,8 +46,8 @@ export class EntityInputFormComponent implements OnInit {
   }
 
   save(): void {
-    this.entityService.setSessionStorage(ENV.entityMetaSessionKey, this.fieldModified);
     this.jsonOutput.emit(this.fieldModified);
+    this.saveToSessionStorage();
   }
 
   registerChange(field: Field): void {
@@ -55,12 +56,19 @@ export class EntityInputFormComponent implements OnInit {
   }
 
   registerChangeDate(type: string, event: MatDatepickerInputEvent<Date>, field: FieldModified): void {
-    this.fieldModified[field.name] = this.transformDate(event.value); //formatDate(event.value, 'yyy-MM-dd', this.locale);
-    this.fieldModified.$orignal[field.name] = this.transformDate(field.orignalValue); //formatDate(field.orignalValue, 'yyy-MM-dd', this.locale);
+    this.fieldModified[field.name] = this.transformDate(event.value);
+    this.fieldModified.$orignal[field.name] = this.transformDate(field.orignalValue);
   }
 
   private transformDate(dateStr: Date) {
     return formatDate(dateStr, ENV.appDateFormat, this.locale);
+  }
+
+  private saveToSessionStorage() {
+    this.snackBar.open( ENV.snackBarSavedMessage, null, {
+      duration: ENV.snackBarDuration,
+    });
+    this.entityService.setSessionStorage(ENV.entityMetaSessionKey, this.fieldModified);
   }
 
 }

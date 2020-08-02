@@ -2,13 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-// export * from './index';
-
 export const environment = {
   production: false,
   baseUrl: '/',
   entityMetaSessionKey: 'EntityData',
-  appDateFormat: 'yyy-MM-dd'
+  appDateFormat: 'yyy-MM-dd',
+  snackBarSavedMessage: 'Saved to Session storage',
+  snackBarDuration: 3000
 };
 
 /*
